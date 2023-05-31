@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Travel Options</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Vehicle Type</th>
+                <th>Price per Passenger</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let option of travelOptions">
+                <td>{{ option.name }}</td>
+                <td>{{ option.vehicleType }}</td>
+                <td>{{ option.pricePerPassenger | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Total Listings: {{ totalListings }}</p>
+    <p>Minimum Price: {{ minPrice | currency }}</p>
+    <p>Maximum Price: {{ maxPrice | currency }}</p>
+    <p>Average Price: {{ avgPrice | number:'1.2-2' | currency }}</p>
+</div>

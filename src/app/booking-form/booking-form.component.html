@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Booking Form</h1>
+    <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+        <div class="form-group">
+            <label for="travellerName">Traveller Name:</label>
+            <input type="text" class="form-control" id="travellerName" name="travellerName" [(ngModel)]="travellerName"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="travellerEmail">Traveller Email:</label>
+            <input type="email" class="form-control" id="travellerEmail" name="travellerEmail"
+                [(ngModel)]="travellerEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="channel">Channel:</label>
+            <select class="form-control" id="channel" name="channel" [(ngModel)]="channel" required>
+                <option value="">Select an option</option>
+                <option value="partner">Partner</option>
+                <option value="agent">Agent</option>
+                <option value="direct customer">Direct Customer</option>
+            </select>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="meetAndGreetOption" name="meetAndGreetOption"
+                [(ngModel)]="meetAndGreetOption">
+            <label class="form-check-label" for="meetAndGreetOption">Is Meet & Greet Option Requested?</label>
+        </div>
+        <div class="form-group">
+            <label for="travelDatetime">Travel Datetime:</label>
+            <input type="datetime-local" class="form-control" id="travelDatetime" name="travelDatetime"
+                [(ngModel)]="travelDatetime" required>
+        </div>
+        <div class="form-group">
+            <label for="bookingPrice">Booking Price:</label>
+            <input type="number" class="form-control" id="bookingPrice" name="bookingPrice" [(ngModel)]="bookingPrice"
+                required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!bookingForm.valid">Submit</button>
+    </form>
+</div>
