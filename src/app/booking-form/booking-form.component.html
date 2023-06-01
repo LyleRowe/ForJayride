@@ -1,40 +1,57 @@
-<div class="container">
-    <h1>Booking Form</h1>
-    <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+<div class="bookformContainer">
+    <!-- <img src="/assets/background.jpg" width="100%"> -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="bookform">
+        <h1>Booking Form</h1>
+        <div>
         <div class="form-group">
             <label for="travellerName">Traveller Name:</label>
-            <input type="text" class="form-control" id="travellerName" name="travellerName" [(ngModel)]="travellerName"
-                required>
+            <input type="text" class="form-control" id="travellerName" formControlName="travellerName">
+            <div *ngIf="myForm.get('travellerName')?.invalid && (myForm.get('travellerName')?.dirty || myForm.get('travellerName')?.touched)">
+                <div *ngIf="myForm.get('travellerName')?.hasError('required')" class="errordiv">Traveller name is required</div>
+              </div>
         </div>
         <div class="form-group">
             <label for="travellerEmail">Traveller Email:</label>
-            <input type="email" class="form-control" id="travellerEmail" name="travellerEmail"
-                [(ngModel)]="travellerEmail" required>
+            <input type="email" class="form-control" id="travellerEmail" formControlName="travellerEmail">
+            <div *ngIf="myForm.get('travellerEmail')?.invalid && (myForm.get('travellerEmail')?.dirty || myForm.get('travellerEmail')?.touched)">
+                <div *ngIf="myForm.get('travellerEmail')?.hasError('required')" class="errordiv">Traveller email is required</div>
+                <div *ngIf="myForm.get('travellerEmail')?.hasError('email')" class="errordiv">Please enter a valid email address</div>
+              </div>
         </div>
         <div class="form-group">
             <label for="channel">Channel:</label>
-            <select class="form-control" id="channel" name="channel" [(ngModel)]="channel" required>
+            <select class="form-control" id="channel" formControlName="channel">
                 <option value="">Select an option</option>
                 <option value="partner">Partner</option>
                 <option value="agent">Agent</option>
                 <option value="direct customer">Direct Customer</option>
             </select>
+            <div *ngIf="myForm.get('channel')?.invalid && (myForm.get('channel')?.dirty || myForm.get('channel')?.touched)">
+                <div *ngIf="myForm.get('channel')?.hasError('required')" class="errordiv">Channel is required</div>
+            </div>
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="meetAndGreetOption" name="meetAndGreetOption"
-                [(ngModel)]="meetAndGreetOption">
+                formControlName="meetAndGreetOption">
             <label class="form-check-label" for="meetAndGreetOption">Is Meet & Greet Option Requested?</label>
         </div>
         <div class="form-group">
             <label for="travelDatetime">Travel Datetime:</label>
             <input type="datetime-local" class="form-control" id="travelDatetime" name="travelDatetime"
-                [(ngModel)]="travelDatetime" required>
+                formControlName="travelDatetime" required>
+                <div *ngIf="myForm.get('travelDatetime')?.invalid && (myForm.get('travelDatetime')?.dirty || myForm.get('travelDatetime')?.touched)">
+                    <div *ngIf="myForm.get('travelDatetime')?.hasError('required')" class="errordiv">Datetime is required</div>
+                </div>
         </div>
         <div class="form-group">
             <label for="bookingPrice">Booking Price:</label>
-            <input type="number" class="form-control" id="bookingPrice" name="bookingPrice" [(ngModel)]="bookingPrice"
+            <input type="number" class="form-control" id="bookingPrice" name="bookingPrice" formControlName="bookingPrice"
                 required>
+                <div *ngIf="myForm.get('bookingPrice')?.invalid && (myForm.get('bookingPrice')?.dirty || myForm.get('bookingPrice')?.touched)">
+                    <div *ngIf="myForm.get('bookingPrice')?.hasError('required')" class="errordiv">Book price is required</div>
+                </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!bookingForm.valid">Submit</button>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
     </form>
 </div>

@@ -1,0 +1,59 @@
+.travelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+
+  /* width: 70vh; */
+}
+.table-striped {
+  width: 70vw;
+
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10;
+}
+.font-effect-shadow-multiple {
+  color: rgb(73, 73, 59);
+  font-size: x-large;
+}
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Set the style for a specific element's scrollbar */
+  .table-striped::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .table-striped::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .my-element::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  i {
+    font-size: 24px;
+  }
+  
+  /* Position the source icon */
+  .source-icon {
+    top: 20px;
+    left: 20px;
+  }
+  
+  /* Position the destination icon */
+  .destination-icon {
+    bottom: 20px;
+    right: 20px;
+  }
