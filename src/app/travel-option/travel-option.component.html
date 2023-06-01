@@ -16,7 +16,7 @@
         <tbody >
             <tr *ngFor="let option of newlistings | orderBy: 'price'">
                 <td>{{ option.name }}</td>
-                <td>{{ option.vehicleType }}</td>
+                <td>{{ option.vehicleType.name }}</td>
                 <td>{{ option.pricePerPassenger | currency }}</td>
             </tr>
         </tbody>
