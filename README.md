@@ -1,4 +1,4 @@
-# Building an Angular 2 Website Using Routes
+# ForJayride
 This is a simple Angular website for Jayride
 
 ## Dependencies
