@@ -1,5 +1,10 @@
-<div class="container">
-    <h1>Travel Options</h1>
+<div class="travelContainer">
+
+  <p class="font-effect-shadow-multiple" style="font-size: xx-large;">Travel Options</p>
+  <div style="display: flex; flex-direction: column;">
+  <p class="font-effect-shadow-multiple" style="font-size: medium">Source: {{source}} </p><p class="font-effect-shadow-multiple" style="font-size: medium">Destination: {{destination}}</p>
+  </div>
+  <div class="table-striped table-hover"  style="max-height: 40vh; overflow-y: scroll; display: block;">
     <table class="table">
         <thead>
             <tr>
@@ -8,16 +13,19 @@
                 <th>Price per Passenger</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let option of travelOptions">
+        <tbody >
+            <tr *ngFor="let option of newlistings | orderBy: 'price'">
                 <td>{{ option.name }}</td>
-                <td>{{ option.vehicleType }}</td>
+                <td>{{ option.vehicleType.name }}</td>
                 <td>{{ option.pricePerPassenger | currency }}</td>
             </tr>
         </tbody>
     </table>
-    <p>Total Listings: {{ totalListings }}</p>
-    <p>Minimum Price: {{ minPrice | currency }}</p>
-    <p>Maximum Price: {{ maxPrice | currency }}</p>
-    <p>Average Price: {{ avgPrice | number:'1.2-2' | currency }}</p>
+  </div>
+  <div>
+    <p class="font-effect-shadow-multiple">Total Listings: {{ totalListings }}</p>
+    <p class="font-effect-shadow-multiple">Minimum Price: {{ minPrice | currency }}</p>
+    <p class="font-effect-shadow-multiple">Maximum Price: {{ maxPrice | currency }}</p>
+    <p class="font-effect-shadow-multiple">Average Price: {{ avgPrice | number:'1.2-2' | currency }}</p>
+</div>
 </div>
